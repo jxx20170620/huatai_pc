@@ -16,7 +16,7 @@ class GoodCourse extends Component {
 
 				    <div key={index} className="panel-27 bg-FFFFFF box-shadow">
 						<a className="v-img">
-							<img alt="test" src={require('../style/images/test.png')}/>
+							<img alt="test" src={require('../style/images/test3.png')}/>
 						</a>
 						<p className="v-title">课程名称</p>
 						<div className="collect-like">

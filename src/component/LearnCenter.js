@@ -18,7 +18,7 @@ class CourseList extends Component {
 				return(
 					<div key={index} className="panel-95 bg-FFFFFF box-shadow">
 					<Link to={"/CourseDetail/"+index} className="v-img">
-					<img alt='head' src={require('../style/images/test.png')}/>
+					<img alt='head' src={require('../style/images/test2.png')}/>
 					<div className="play"><i className="icon-play"></i></div>
 					</Link>
 					<div className="v-info">

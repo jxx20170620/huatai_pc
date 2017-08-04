@@ -20,7 +20,7 @@ class Course extends Component {
 	render(){
 		return(
 				<Link to={"/CourseDetail/"+this.state.course.id}>
-					<img alt='test' src={require('../style/images/test.png')} />
+					<img alt='test' src={require('../style/images/test9.png')} />
 					<p className="title">{this.state.course.name}</p>
 					<p className="like">
 					  <span><i className="icon-heart"></i>12331</span>

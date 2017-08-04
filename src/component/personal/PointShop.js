@@ -15,7 +15,7 @@ class Goods extends Component {
 			{this.state.goodList.map((item,index)=>{
 				return(
 							<li key={index}>
-								<img src={require('../../style/images/test.png')} alt='test'/>
+								<img src={require('../../style/images/goods.png')} alt='goods'/>
 								<div className="good-details">
 									<p className="name">Lamy恒星系列2017限量款太平洋蓝钢笔</p>
 									<p className="integral">兑换积分：<span>2,800</span></p>

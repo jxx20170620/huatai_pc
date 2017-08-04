@@ -25,9 +25,9 @@ class Banner extends Component {
 		};
 		return (
 			<Slider {...settings}>
-               <div><img style={imgStyle} alt='test' src={require('../style/images/test.png')} /></div>
-               <div><img style={imgStyle} alt='test' src={require('../style/images/test.png')} /></div>
-               <div><img style={imgStyle} alt='test' src={require('../style/images/test.png')} /></div>
+               <div><img style={imgStyle} alt='test' src={require('../style/images/test4.png')} /></div>
+               <div><img style={imgStyle} alt='test' src={require('../style/images/test10.png')} /></div>
+               <div><img style={imgStyle} alt='test' src={require('../style/images/test7.png')} /></div>
              </Slider>
 		)
 	}
@@ -112,7 +112,7 @@ class GoodArticle extends Component {
 			  	return(
 			  				<li key={index} className="have-img slider-item">
 			  					<a>
-			  						<img alt='test' src={require('../style/images/test.png')}/>
+			  						<img alt='test' src={require('../style/images/book.png')}/>
 			  						<p className="title">如何用保险保障自己的一生？</p>
 			  						<p className="content">我写这回答的目的是希望各位有幸看到本文的朋友能抽出您人生中的30分钟尽量一字不拉地读完本回答……</p>
 			  						<p className="time"><i className="icon-time"></i>2017-06-12 17:21:07</p>
@@ -177,7 +177,7 @@ class GoodTeacher extends Component {
 			      	return(
 			      			<div key={index}>
 			      				<div className='back'>
-			      					<img src={require('../style/images/test.png')} alt='test'/>
+			      					<img src={require('../style/images/book2.png')} alt='test'/>
 			      				</div>
 			      				<p className="name">张江{index}</p>
 			      				<p className="english">zhangjiang</p>

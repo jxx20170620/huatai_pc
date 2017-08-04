@@ -11,7 +11,8 @@ class Information extends Component {
 		return(
 			<div className="panel-120 bg-FFFFFF box-shadow">
 				<div className="video-box">
-					<video src={require('../style/images/portrait.png')} controls="controls"  width="630p" height="375" poster={require('../style/images/test.png')} preload="auto">
+					<video src={require('../style/images/history.mp4')} controls="controls"  width="630p" height="375" 
+					poster={require('../style/images/test2.png')} preload="auto">
 						您的浏览器不支持 video 标签。
 					</video>
 				</div>

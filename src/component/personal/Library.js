@@ -16,7 +16,7 @@ class MyBooks extends Component {
 			{this.state.BookList.map((item,index)=>{
 				return(
 							<li key={index}>
-								<img src={require('../../style/images/test.png')} alt='test' />
+								<img src={require('../../style/images/book2.png')} alt='book' />
 								<div className="book-details">
 									<p>作者:  [哥伦比亚] 加西亚·马尔克斯</p>
 									<p>出版社: 南海出版公司</p>
@@ -47,7 +47,7 @@ class LibraryBooks extends Component {
 			{this.state.BookList.map((item,index)=>{
 				return(
 							<li key={index}>
-								<img src={require('../../style/images/test.png')} alt='test' />
+								<img src={require('../../style/images/book.png')} alt='book' />
 								<div className="book-details">
 									<p>作者:  [哥伦比亚] 加西亚·马尔克斯</p>
 									<p>出版社: 南海出版公司</p>
@@ -77,8 +77,8 @@ class Library extends Component {
 				<div className="left-layout">
 					<div className="filter clearFix pad-t-20">
 						<ul className="filter-ul nav clearFix">
-							<li className={this.state.activeIndex?"active":""} onClick={()=>{this.setState({activeIndex:true})}}><a>我的书架</a></li>
-							<li className={!this.state.activeIndex?"active":""} onClick={()=>{this.setState({activeIndex:false})}}><a>图书馆</a></li>
+							<li><a className={this.state.activeIndex?"active":""} onClick={()=>{this.setState({activeIndex:true})}}>我的书架</a></li>
+							<li><a className={!this.state.activeIndex?"active":""} onClick={()=>{this.setState({activeIndex:false})}}>图书馆</a></li>
 						</ul>
 						<div className="filter-search floatR">
 							<input type="text" placeholder="搜索"/>
