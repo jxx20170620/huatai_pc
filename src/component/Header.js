@@ -28,7 +28,7 @@ class Header extends Component {
 			headItems: [
 			{
 				href: '/',
-				text: '主战',
+				text: '主站',
 			}, 
 			{
 				href: '/LearnCenter',
@@ -37,6 +37,10 @@ class Header extends Component {
 			{
 				href: '/GoodArticle',
 				text: '精彩文章',
+			},
+			{
+				href: '/Rank',
+				text: '排行榜',
 			},
 			{
 				href: '/PersonalCenter',

@@ -59,13 +59,30 @@ class MultiselectList extends Component {
 class TestOnline extends Component {
 	constructor(args) {
 		super();
+		this.state = {
+			times: 300,
+			showTip:true
+		}
+	}
+	componentWillMount() {
+		this.timer = setInterval(() => {
+			this.setState({
+				times: this.state.times - 1
+			})
+		}, 1000);
+	}
+	componentWillUnmount() {
+		this.timer && clearTimeout(this.timer);
+		clearInterval(this.timer);
 	}
 	render() {
 		return(
 		<div className="wrapper bg-F0F4F6">
 			<div className="layout clearFix">
-				<div className="tip">Tips：若答题结果不理想，您可重新学习当前课程后再次答题，系统最终将记录您当前课程的最高答题得分。<i className="icon-remove floatR"></i></div>
-				<div className="answer-time bg-FFFFFF">答题倒计时：<span>300</span> 秒</div>
+				{this.state.showTip?<div className="tip">Tips：若答题结果不理想，您可重新学习当前课程后再次答题，系统最终将记录您当前课程的最高答题得分。
+				   <i className="icon-remove floatR" onClick={()=>{this.setState({showTip:false})}}></i>
+				</div>:null}
+				<div className="answer-time bg-FFFFFF">答题倒计时：<span>{this.state.times}</span> 秒</div>
 	        </div>
 	        <div className="panel-120 bg-FFFFFF box-shadow">
 	          <RadioList />

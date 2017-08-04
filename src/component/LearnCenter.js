@@ -49,6 +49,9 @@ class CourseList extends Component {
 class LearnCenter extends Component {
 	constructor(args) {
 		super();
+		this.state = {
+			activeIndex: true
+		}
 	}
 
 	render(){
@@ -58,8 +61,8 @@ class LearnCenter extends Component {
 			       <div className="left-layout">
 			       	   <div className="filter clearFix pad-t-20 mar-b-20">
 				        <ul className="filter-ul clearFix">
-				        	<li><a className="active">视频热度排序</a></li>
-				        	<li><a>发布时间排序</a></li>
+				        	<li><a className={this.state.activeIndex?"active":""} onClick={()=>{this.setState({activeIndex:true})}}>视频热度排序</a></li>
+				        	<li><a className={!this.state.activeIndex?"active":""} onClick={()=>{this.setState({activeIndex:false})}}>发布时间排序</a></li>
 				        </ul>
 				        <div className="layout-filter floatR">
 				        	<a><i className="icon-th-large"></i></a>

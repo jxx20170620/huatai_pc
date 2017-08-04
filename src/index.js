@@ -11,6 +11,7 @@ import GoodArticle from './component/GoodArticle'
 import CourseDetail from './component/CourseDetail'
 import TestOnline from './component/TestOnline'
 import PersonalCenter from './component/PersonalCenter'
+import Rank from './component/Rank'
 
 import Login from './component/Login'
 import NotFoundPage from './component/NotFoundPage'
@@ -28,6 +29,7 @@ render(
              <Route path='CourseDetail/:id' component={CourseDetail}/>
              <Route path='TestOnline' component={TestOnline}/>
              <Route path='PersonalCenter' component={PersonalCenter}/>
+             <Route path='Rank' component={Rank}/>
          </Route>
          <Route path='/404' component={NotFoundPage} />
          <Redirect from='*' to='/404' />
