@@ -1,7 +1,5 @@
-﻿	export function alertMessage(messageText, hideTime) {
-		return {
-			type: 'ALERT_SHOW',
-			messageText,
-			hideTime
-		};
+﻿export const exit = () => {
+	return {
+		type: 'EXIT'
 	}
+}

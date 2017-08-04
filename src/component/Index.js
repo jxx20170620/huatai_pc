@@ -1,39 +1,34 @@
 import React,{Component} from 'react'
-import {getObject} from './config'
-import {Link} from 'react-router'
+import {getObject} from '../config/public'
+import Slider from 'react-slick';
+import Course from './Course'
+const imgStyle = {
+	width: '100%',
+	height: '350px'
+}
 class Banner extends Component {
 	constructor(args) {
 		super();
 
 	}
-	render() {
-		return (
-			<div id="myCarousel" className="carousel slide">
-              	
-              	<ol className="carousel-indicators">
-              		<li data-target="#myCarousel" data-slide-to="0" className="active"></li>
-              		<li data-target="#myCarousel" data-slide-to="1"></li>
-              		<li data-target="#myCarousel" data-slide-to="2"></li>
-              	</ol>   
-              
-              	<div className="carousel-inner">
-              		<div className="item active">
-              			<img alt='test' src={require('../style/images/test.png')} />
-              		</div>
-              		<div className="item">
-              			<img alt='test' src={require('../style/images/test.png')} />
-              		</div>
-              		<div className="item">
-              			<img alt='test' src={require('../style/images/test.png')} />
-              		</div>
-              	</div>
-              
-              	<a className="carousel-control left" href="#myCarousel" 
-              	   data-slide="prev">&lsaquo;</a>
-              	<a className="carousel-control right" href="#myCarousel" 
-              	   data-slide="next">&rsaquo;</a>
+	componentDidMount() {
 
-           </div>
+	}
+	render() {
+		const settings = {
+			dots: true,
+			// infinite: true,
+			speed: 500,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true
+		};
+		return (
+			<Slider {...settings}>
+               <div><img style={imgStyle} alt='test' src={require('../style/images/test.png')} /></div>
+               <div><img style={imgStyle} alt='test' src={require('../style/images/test.png')} /></div>
+               <div><img style={imgStyle} alt='test' src={require('../style/images/test.png')} /></div>
+             </Slider>
 		)
 	}
 
@@ -53,11 +48,7 @@ class HotCourse extends Component {
 				this.state.courseList.map((item,index)=>{
 					return(
 							<li key={index}>
-								<Link to={"/CourseDetail/"+index}>
-									<img alt='test' src={require('../style/images/test.png')} />
-									<p className="title">课程名称</p>
-									<p className="like"><span><i className="icon-heart"></i>12331</span><span className="floatR">个险</span></p>
-								</Link>
+							   <Course />
 							</li>
 						)
 				})
@@ -119,7 +110,7 @@ class GoodArticle extends Component {
 			<ul className="index-article clearFix">
 			  {this.state.articleList.map((item,index)=>{
 			  	return(
-			  				<li key={index} className="have-img">
+			  				<li key={index} className="have-img slider-item">
 			  					<a>
 			  						<img alt='test' src={require('../style/images/test.png')}/>
 			  						<p className="title">如何用保险保障自己的一生？</p>
@@ -134,6 +125,70 @@ class GoodArticle extends Component {
 	}
 
 }
+function SampleNextArrow(props) {
+  // console.log(props)
+  const {onClick} = props
+  return (
+    <div
+      className={"arr arr-left "}
+      onClick={onClick}
+    >
+    <i className="icon-angle-left"></i>
+    </div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const {onClick} = props
+  return (
+    <div
+      className={"arr arr-right "}
+      onClick={onClick}
+    >
+    <i className="icon-angle-right"></i>
+    </div>
+  );
+}
+class GoodTeacher extends Component {
+	constructor(args) {
+		super();
+		this.state = {
+			teacherList: getObject(10)
+		}
+	}
+	componentDidMount() {
+		
+	}
+	render(){
+		const settings = {
+			// dots: true,
+			// infinite: true,
+			speed: 500,
+			slidesToShow: 5,
+			swipeToSlide: true,
+			slidesToScroll: 5,
+						nextArrow: <SampleNextArrow />,
+						prevArrow: <SamplePrevArrow />
+		};
+		return(
+
+			   <Slider {...settings} className="good-teacher">
+			      {this.state.teacherList.map((item,index)=>{
+			      	return(
+			      			<div key={index}>
+			      				<div className='back'>
+			      					<img src={require('../style/images/test.png')} alt='test'/>
+			      				</div>
+			      				<p className="name">张江{index}</p>
+			      				<p className="english">zhangjiang</p>
+			      			</div>
+			      		)
+			      })}
+			   </Slider>
+			)
+	}
+}
+
 class Index extends Component {
 	constructor(args) {
 		super();
@@ -164,6 +219,10 @@ class Index extends Component {
 							<a className="floatR">更多&gt;</a>
 					      </div>
 					      <GoodArticle />
+					     <div className="index-title">
+							<span>优秀讲师</span>
+						</div>
+						<GoodTeacher />
 			     	</div>
 
 			     	<div className="right-layout">

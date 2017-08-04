@@ -1,5 +1,25 @@
 import React,{Component} from 'react'
 import {Link} from 'react-router';
+import { Menu, Dropdown } from 'antd';
+import {connect} from 'react-redux'
+class HoverMenu extends Component {
+	constructor(args) {
+		super();
+	}
+	handleClick(e){
+		if(e.key === 'exit'){
+			this.props.exit();
+		}
+	}
+	render(){
+		return(
+               <Menu onClick={(e)=>this.handleClick(e)}>
+                 <Menu.Item key="username">您好,{localStorage.getItem('username')}</Menu.Item>
+                 <Menu.Item key="exit">退出登录</Menu.Item>
+               </Menu>
+			)
+	}
+}
 class Header extends Component {
 	constructor(args) {
 		super();
@@ -18,7 +38,12 @@ class Header extends Component {
 				href: '/GoodArticle',
 				text: '精彩文章',
 			},
-			]
+			{
+				href: '/PersonalCenter',
+				text: '个人中心',
+			},
+			],
+			isLogin:false
 		}
 	}
 	componentWillMount() {
@@ -32,6 +57,20 @@ class Header extends Component {
 			}
 			activeIndex++;
 		}
+		if(localStorage.getItem('username')!== null){
+			this.setState({
+				isLogin:true
+			})
+		}
+	}
+	exit = () =>{
+		localStorage.removeItem('username');
+		this.setState({
+			isLogin:false
+		})
+	}
+	componentWillReceiveProps(nextProps) {
+
 	}
 	render() {
 		return(
@@ -49,20 +88,16 @@ class Header extends Component {
 		           	})
 		           }
 
-{/*					<li><Link onClick={(e)=>this.changePage(e)} to="/" className="active">主战</Link></li>
-					<li><Link onClick={(e)=>this.changePage(e)} to="/LearnCenter">学习中心</Link></li>
-					<li><Link onClick={(e)=>this.changePage(e)} to="/GoodArticle">精彩文章</Link></li>
-					<li><Link onClick={(e)=>this.changePage(e)} to="/Rank">排行榜</Link></li>
-					<li><Link onClick={(e)=>this.changePage(e)} to="/Circle">圈子</Link></li>
-					<li><Link onClick={(e)=>this.changePage(e)} to="/PersonalCenter">个人中心</Link></li>*/}
-
 				</ul>
 				<div className="header-right">
 					<a className="mail-info"><i className="icon-envelope-alt"></i></a>
-					{/*<a className="btn login-btn">登录</a>*/}
+					{!this.state.isLogin?<Link to='/Login' className="btn login-btn">登录</Link>:
+					<Dropdown overlay={<HoverMenu exit = {this.exit} />}>
 					<a className="portrait">
 					   <img alt='head' src={require('../style/images/portrait.png')} />
 					</a>
+					</Dropdown>
+				    }
 					<a className="btn sign-btn">签到</a>
 					<p className="sign-info">07月18日<br/>漏签<span>0</span>天</p>
 				</div>
@@ -71,5 +106,9 @@ class Header extends Component {
 			)
 	}
 }
-export default Header
+const mapStateToProps = (state) => {
+	return {
 
+	}
+}
+export default connect(mapStateToProps)(Header)

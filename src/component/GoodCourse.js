@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {getObject} from './config'
+import {getObject} from '../config/public'
 class GoodCourse extends Component {
 	constructor(args) {
 		super();

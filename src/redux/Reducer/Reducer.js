@@ -1,10 +1,8 @@
-export const reduAlert = (state = '', action) => {
+export const reduIsLogin = (state = '', action) => {
 	switch (action.type) {
-		case 'ALERT_SHOW':
+		case 'EXIT':
 			return {
-				time: new Date(),
-				messageText: action.messageText,
-				hideTime: action.hideTime
+				time: new Date()
 			}
 		default:
 			return state;

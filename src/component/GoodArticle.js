@@ -1,7 +1,8 @@
 import React,{Component} from 'react'
-import {getObject} from './config'
+import {getObject} from '../config/public'
 import GoodCourse from './GoodCourse'
 import {Link} from 'react-router'
+import Pages from './Pages'
 class ArticleList extends Component {
 	constructor(args) {
 		super();
@@ -39,25 +40,8 @@ class GoodArticle extends Component {
 			   <div className="layout clearFix">
 			      <div className="left-layout" style={{paddingTop:'40px'}}>
 			             <ArticleList />
-			             <div className="pages">
-		                 	<ul className="pagination clearFix">
-		                 	    <li>
-		                 	        <a className="previous">上一页</a>
-		                 	    </li>
-		                 	    <li><a className="active">1</a></li>
-		                 	    <li><font>...</font></li>
-		                 	    <li><a>5</a></li>
-		                 	    <li><a>6</a></li>
-		                 	    <li><font>...</font></li>
-		                 	    <li><a>10</a></li>
-		                 	    <li>
-		                 	        <a className="next">下一页</a>
-		                 	    </li>
-		                 	    <li>
-		                 	        <a className="last">尾页</a>
-		                 	    </li>
-		                 	</ul>
-		                 </div>
+			             <div className="line"></div>
+			             <Pages />
 			         </div>
 			         <div className="right-layout">
 			        	 <div className="panel-27-head">

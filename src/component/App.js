@@ -13,7 +13,7 @@ class App extends Component {
 			
 			   <Header page={this.props.children.props.location.pathname}/>
    
-			    <div>
+			    <div className='app-body'>
 			       {this.props.children}
 			    </div>
 
