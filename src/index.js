@@ -14,6 +14,8 @@ import PersonalCenter from './component/PersonalCenter'
 import Rank from './component/Rank'
 import StudentRank from './component/rank/StudentRank'
 import TeacherRank from './component/rank/TeacherRank'
+import StudentDetail from './component/rank/StudentDetail'
+import TeacherDetail from './component/rank/TeacherDetail'
 import NewsCenter from './component/NewsCenter'
 import Login from './component/Login'
 import NotFoundPage from './component/NotFoundPage'
@@ -35,6 +37,8 @@ render(
              <Route path='StudentRank' component={StudentRank}/>
              <Route path='TeacherRank' component={TeacherRank}/>
              <Route path='NewsCenter' component={NewsCenter}/>
+             <Route path='StudentDetail/:id' component={StudentDetail}/>
+             <Route path='TeacherDetail/:id' component={TeacherDetail}/>
          </Route>
          <Route path='/404' component={NotFoundPage} />
          <Redirect from='*' to='/404' />

@@ -48,7 +48,7 @@ class HotCourse extends Component {
 				this.state.courseList.map((item,index)=>{
 					return(
 							<li key={index}>
-							   <Course />
+							   <Course id={index}/>
 							</li>
 						)
 				})

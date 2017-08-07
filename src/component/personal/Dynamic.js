@@ -17,7 +17,7 @@ class LearnDynamic extends Component {
 			{this.state.CourseList.map((item,index)=>{
 				return(
 						<li key={index}>
-						  <Course />
+						  <Course id={index}/>
 						</li>
 					)
 			})}

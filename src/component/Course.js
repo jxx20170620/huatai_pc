@@ -10,7 +10,7 @@ class Course extends Component {
 	}
 	componentWillMount() {
 		let course = {
-			id: 0,
+			id: this.props.id,
 			name: '课程名称',
 		};
 		this.setState({
