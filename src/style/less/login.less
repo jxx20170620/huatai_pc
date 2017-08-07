@@ -46,7 +46,7 @@
     border-radius: 5px;
 }
 
-.login-box .login-input>label input[type="text"] {
+.login-box .login-input>label input {
     width: 100%;
     height: 100%;
     padding: 0 5px;
@@ -62,9 +62,8 @@
 }
 
 .login-box .login-input .rember label input[type="checkbox"] {
-	margin-left: 20px;
-    margin-right: 5px;
-    // vertical-align: middle;
+    // margin-left: 20px;
+    margin-right: 5px; // vertical-align: middle;
 }
 
 .login-box .login-input .rember a {
@@ -72,15 +71,74 @@
     color: #FFFFFF
 }
 
-.login-box .login-input .login-btn {
+.login-btn {
     display: block;
     width: 100%;
     height: 50px;
     margin-top: 30px;
-    background-color: #FFCA05;
+    background-color: #e6b003;
     font-size: 18px;
     text-align: center;
     line-height: 50px;
     color: #005496;
     border-radius: 5px;
+    position: relative;
 }
+
+.login-btn:hover {
+    color: #005496;
+    background-color: #ffc900;
+}
+
+.login-btn:before {
+    content: ''; 
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 0 #ffc900;
+    animation: btn_wave 3s infinite;
+}
+
+@-webkit-keyframes btn_wave {
+    0% {
+        box-shadow: 0 0 0 0 #ffc900
+    }
+    0%,
+    90% {
+        opacity: .8
+    }
+    to {
+        opacity: 0;
+        box-shadow: 0 0 0 7pt rgba(255, 255, 255, 0)
+    }
+}
+
+@keyframes btn_wave {
+    0% {
+        box-shadow: 0 0 0 0 #ffc900
+    }
+    0%,
+    90% {
+        opacity: .8
+    }
+    to {
+        opacity: 0;
+        box-shadow: 0 0 0 7pt rgba(255, 255, 255, 0)
+    }
+}
+
+// .login-box .login-input .login-btn {
+//     display: block;
+//     width: 100%;
+//     height: 50px;
+//     margin-top: 30px;
+//     background-color: #FFCA05;
+//     font-size: 18px;
+//     text-align: center;
+//     line-height: 50px;
+//     color: #005496;
+//     border-radius: 5px;
+// }

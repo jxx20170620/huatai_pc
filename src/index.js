@@ -1,7 +1,7 @@
 import React from 'react';
 import registerServiceWorker from './registerServiceWorker';
 import { render } from 'react-dom'
-import { Router, Route, IndexRoute,hashHistory,Redirect} from 'react-router'
+import { Router, Route, IndexRoute,browserHistory,Redirect} from 'react-router'
 import {Provider} from 'react-redux'
 import store from './redux/Store/Store'
 import App from './component/App'
@@ -24,7 +24,7 @@ import  './style/css/font-awesome.min.css';
 
 render(
 	<Provider store={store}>
-       <Router history={hashHistory}>
+       <Router history={browserHistory}>
          <Route path='Login' component={Login} />
          <Route path='/' component={App}>
              <IndexRoute component={Index}/>

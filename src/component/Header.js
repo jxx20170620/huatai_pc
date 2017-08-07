@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Link} from 'react-router';
+import {Link,browserHistory} from 'react-router';
 import { Menu, Dropdown } from 'antd';
 import {connect} from 'react-redux'
 class HoverMenu extends Component {
@@ -75,9 +75,11 @@ class Header extends Component {
 	}
 	exit = () => {
 		localStorage.removeItem('username');
-		this.setState({
-			isLogin: false
-		})
+		window.location.reload();
+		browserHistory.push('/');
+		// this.setState({
+		// 	isLogin: false
+		// })
 	}
 	render() {
 		return(
@@ -106,7 +108,6 @@ class Header extends Component {
 					   <img alt='head' src={require('../style/images/portrait.png')} />
 					</a>
 					</Dropdown>
-				    }
 					<a className="btn sign-btn">签到</a>
 					<p className="sign-info">07月18日<br/>漏签<span>0</span>天</p>
 				  </div>
