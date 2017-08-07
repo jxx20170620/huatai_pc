@@ -24,7 +24,7 @@ class Header extends Component {
 	constructor(args) {
 		super();
 		this.state = {
-			activeIndex: 0,
+			activeIndex: -1,
 			headItems: [
 			{
 				href: '/',
@@ -50,31 +50,34 @@ class Header extends Component {
 			isLogin:false
 		}
 	}
-	componentWillMount() {
+	checkPage(page) {
 		let activeIndex = 0;
 		for (let x of this.state.headItems) {
-			if (x.href === this.props.page) {
-				this.setState({
-					activeIndex: activeIndex
-				})
+			if (x.href === page) {
 				break;
 			}
 			activeIndex++;
 		}
-		if(localStorage.getItem('username')!== null){
+		this.setState({
+			activeIndex: activeIndex
+		})
+	}
+	componentWillMount() {
+		this.checkPage(this.props.page)
+		if (localStorage.getItem('username') !== null) {
 			this.setState({
-				isLogin:true
+				isLogin: true
 			})
 		}
 	}
-	exit = () =>{
+	componentWillReceiveProps(nextProps) {
+		this.checkPage(nextProps.page)
+	}
+	exit = () => {
 		localStorage.removeItem('username');
 		this.setState({
-			isLogin:false
+			isLogin: false
 		})
-	}
-	componentWillReceiveProps(nextProps) {
-
 	}
 	render() {
 		return(
@@ -87,7 +90,9 @@ class Header extends Component {
 		           	this.state.headItems.map((item, index) => {
 		           		let className = this.state.activeIndex === index ? 'active' : '';
 		           		return (
-		           			<li key={index}><Link className={className} onClick={()=>{this.setState({activeIndex:index})}} to={item.href}>{item.text}</Link></li>
+		           			<li key={index}><Link className={className} 
+		           			// onClick={()=>{this.setState({activeIndex:index})}}
+		           			 to={item.href}>{item.text}</Link></li>
 		           		)
 		           	})
 		           }
