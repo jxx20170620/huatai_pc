@@ -12,7 +12,9 @@ import CourseDetail from './component/CourseDetail'
 import TestOnline from './component/TestOnline'
 import PersonalCenter from './component/PersonalCenter'
 import Rank from './component/Rank'
-
+import StudentRank from './component/rank/StudentRank'
+import TeacherRank from './component/rank/TeacherRank'
+import NewsCenter from './component/NewsCenter'
 import Login from './component/Login'
 import NotFoundPage from './component/NotFoundPage'
 import './style/less/config.less';
@@ -30,6 +32,9 @@ render(
              <Route path='TestOnline' component={TestOnline}/>
              <Route path='PersonalCenter' component={PersonalCenter}/>
              <Route path='Rank' component={Rank}/>
+             <Route path='StudentRank' component={StudentRank}/>
+             <Route path='TeacherRank' component={TeacherRank}/>
+             <Route path='NewsCenter' component={NewsCenter}/>
          </Route>
          <Route path='/404' component={NotFoundPage} />
          <Redirect from='*' to='/404' />

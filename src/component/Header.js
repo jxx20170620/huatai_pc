@@ -93,9 +93,9 @@ class Header extends Component {
 		           }
 
 				</ul>
-				<div className="header-right">
-					<a className="mail-info"><i className="icon-envelope-alt"></i></a>
-					{!this.state.isLogin?<Link to='/Login' className="btn login-btn">登录</Link>:
+				{this.state.isLogin?
+				  <div className="header-right">
+					<Link to="/NewsCenter" className="mail-info"><i className="icon-envelope-alt"></i><span></span></Link>
 					<Dropdown overlay={<HoverMenu exit = {this.exit} />}>
 					<a className="portrait">
 					   <img alt='head' src={require('../style/images/portrait.png')} />
@@ -104,7 +104,12 @@ class Header extends Component {
 				    }
 					<a className="btn sign-btn">签到</a>
 					<p className="sign-info">07月18日<br/>漏签<span>0</span>天</p>
-				</div>
+				  </div>
+				:
+				  <div className="header-right">
+					<Link to='/Login' className="btn login-btn">登录</Link>
+				  </div>
+				}
 			</div>
 		</div>
 			)

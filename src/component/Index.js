@@ -167,8 +167,8 @@ class GoodTeacher extends Component {
 			slidesToShow: 5,
 			swipeToSlide: true,
 			slidesToScroll: 5,
-						nextArrow: <SampleNextArrow />,
-						prevArrow: <SamplePrevArrow />
+			nextArrow: <SampleNextArrow />,
+			prevArrow: <SamplePrevArrow />
 		};
 		return(
 
