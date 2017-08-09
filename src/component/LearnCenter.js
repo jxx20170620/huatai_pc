@@ -26,7 +26,7 @@ class CourseList extends Component {
 	}
 }
 
-class LearnCenter extends Component {
+class LearnCenter extends Component {			
 	constructor(args) {
 		super();
 		this.state = {

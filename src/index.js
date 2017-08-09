@@ -18,6 +18,7 @@ import StudentDetail from './component/rank/StudentDetail'
 import TeacherDetail from './component/rank/TeacherDetail'
 import NewsCenter from './component/NewsCenter'
 import Login from './component/Login'
+import CourseManage from './component/CourseManage'
 import NotFoundPage from './component/NotFoundPage'
 import './style/less/config.less';
 import  './style/css/font-awesome.min.css';
@@ -39,6 +40,8 @@ render(
              <Route path='NewsCenter' component={NewsCenter}/>
              <Route path='StudentDetail/:id' component={StudentDetail}/>
              <Route path='TeacherDetail/:id' component={TeacherDetail}/>
+             <Route path='CourseManage' component={CourseManage}/>
+             <Route path='AddCourse' component={CourseManage}/>
          </Route>
          <Route path='/404' component={NotFoundPage} />
          <Redirect from='*' to='/404' />

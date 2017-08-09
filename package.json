@@ -38,6 +38,7 @@
     "react": "^15.6.1",
     "react-dev-utils": "^3.0.2",
     "react-dom": "^15.6.1",
+    "react-dropzone": "^4.0.0",
     "react-error-overlay": "^1.0.9",
     "react-slick": "^0.14.11",
     "react-switch-case": "^1.0.2",

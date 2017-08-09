@@ -12,7 +12,8 @@ class Information extends Component {
 			<div className="panel-120 bg-FFFFFF box-shadow">
 				<div className="video-box">
 					<video src={require('../style/images/history.mp4')} controls="controls"  width="630p" height="375" 
-					poster={require('../style/images/test2.png')} preload="auto">
+					// poster={require('../style/images/test2.png')} 
+					preload="auto">
 						您的浏览器不支持 video 标签。
 					</video>
 				</div>
@@ -136,14 +137,6 @@ class CourseDetail extends Component {
 			             <Pages />
 			         </div>
 			         <div className="right-layout">
-			        	 <div className="panel-27-head">
-					     	<h3 className="title">精品课程</h3>
-					     	<div className="page-tab">
-					     		<span>1/3</span>
-					     		<a className="pre"><i className="icon-angle-left"></i></a>
-					     		<a className="nex"><i className="icon-angle-right"></i></a>
-					     	</div>
-					     </div>
 			             <GoodCourse />
 			        </div>
 			    </div>

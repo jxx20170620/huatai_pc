@@ -14,7 +14,7 @@ class HoverMenu extends Component {
 	render(){
 		return(
                <Menu onClick={(e)=>this.handleClick(e)}>
-                 <Menu.Item key="username">您好,{localStorage.getItem('username')}</Menu.Item>
+                 <Menu.Item key="username">您好,{localStorage.getItem('user')}</Menu.Item>
                  <Menu.Item key="exit">退出登录</Menu.Item>
                </Menu>
 			)
@@ -64,7 +64,7 @@ class Header extends Component {
 	}
 	componentWillMount() {
 		this.checkPage(this.props.page)
-		if (localStorage.getItem('username') !== null) {
+		if (localStorage.getItem('user') !== null) {
 			this.setState({
 				isLogin: true
 			})
@@ -74,7 +74,7 @@ class Header extends Component {
 		this.checkPage(nextProps.page)
 	}
 	exit = () => {
-		localStorage.removeItem('username');
+		localStorage.removeItem('user');
 		window.location.reload();
 		browserHistory.push('/');
 		// this.setState({
