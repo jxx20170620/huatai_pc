@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import '../style/less/config.less';
 class App extends Component {
 	constructor(args) {
 		super()
@@ -9,11 +10,11 @@ class App extends Component {
 	render() {
 
 		return (
-			<div>
+			<div className='app'>
 			
 			   <Header page={this.props.children.props.location.pathname}/>
    
-			    <div className='app-body'>
+			    <div>
 			       {this.props.children}
 			    </div>
 

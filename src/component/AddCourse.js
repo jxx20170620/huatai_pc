@@ -3,6 +3,7 @@ import {getObject} from '../config/public'
 import Dropzone from 'react-dropzone'
 import $ from 'jquery'
 import { message } from 'antd';
+import {addCourse} from '../config/fetch'
 class SingleQuestion extends Component {
 	constructor(args) {
 		super();
@@ -94,6 +95,14 @@ class AddCourse extends Component {
 			videos : accepted
 		});
 	}
+	changeVideo(e) {
+		if (e.target.duration / 60 > 5) {
+			message.error('视频不超过10分钟', 3);
+			this.setState({
+				videos: []
+			})
+		}
+	}
 	chooseEnclosure(accepted, rejected){
 		if(accepted.length > 5){
 			message.error('附件不超过5个', 1);
@@ -127,6 +136,7 @@ class AddCourse extends Component {
 		let MultipleQuestion = [];
 		let course_name = $('.course_name').val();
 		let course_describe = $('.course_describe').val();
+		let answer_time = $('.answer_time').val();
 
 		$('.SingleQuestion').each(function(i) {
 			let question = $(this).find('.question').val();
@@ -219,6 +229,7 @@ class AddCourse extends Component {
 		Course.MultipleQuestion = MultipleQuestion;
 		Course.course_name = course_name;
 		Course.course_describe = course_describe;
+		Course.answer_time = answer_time;
 
 		if (this.state.videos.length > 0) {
 			Course.course_video = this.state.videos[0];
@@ -226,13 +237,54 @@ class AddCourse extends Component {
 			message.error('请添加课程视频', 1);
 			return;
 		}
+		Course.enclosures = [];
 		if (this.state.enclosures.length > 0) {
 			Course.enclosures = this.state.enclosures;
 		} else {
 			// message.error('请添课程附件', 1);return;
 		}
 
-		console.log(Course)
+		let coursedata = [];
+		let checkboxTitles = [];
+		let radioTitles = [];
+		coursedata.courseName = course_name;
+		coursedata.courseDesc = course_describe;
+		coursedata.answerTime = answer_time;
+
+		for (let x of Course.SingleQuestion) {
+			radioTitles.push({
+				checkboxTitle: x.question,
+				checkboxAnswerDesc: [x.describeA, x.describeB, x.describeC, x.describeD],
+				checkboxAnswer: x.answer,
+				checkboxTitleType: 1
+			});
+		}
+		for (let x of Course.MultipleQuestion) {
+			checkboxTitles.push({
+				checkboxTitle: x.question,
+				checkboxAnswerDesc: [x.describeA, x.describeB, x.describeC, x.describeD],
+				checkboxAnswer: x.answer,
+				checkboxTitleType: 2
+			});
+		}
+
+		let formData = new FormData();
+		formData.append('radioTitles', JSON.stringify(radioTitles));
+		formData.append('coursedata', JSON.stringify(coursedata));
+		formData.append('checkboxTitles', JSON.stringify(checkboxTitles));
+		formData.append('video', Course.course_video);
+
+		for(let x of Course.enclosures){
+			formData.append('fileList', x);
+		}
+		
+
+		addCourse(formData).then((data) => {
+			console.log(data)
+		}, (reject) => {
+			console.log(reject)
+		})
+
 	}
 	render(){
 		return(
@@ -245,7 +297,8 @@ class AddCourse extends Component {
 						<div>			
 							<video src={this.state.videos[0].preview} 
 					         controls="controls"   
-					         className = 'course-video'
+					         className = "course_video"
+					         onCanPlayThrough = {(e)=>this.changeVideo(e)}
 					         // poster={require('../style/images/test2.png')} 
 					         preload="auto">
 					         您的浏览器不支持 video 标签。
@@ -308,7 +361,7 @@ class AddCourse extends Component {
 
 			
 				    <div className="time-inp">答题时间
-					  <input required="required" className='examTime' type="number" />分钟
+					  <input required="required" className='answer_time' type="number" />分钟
 					</div>
 	
 

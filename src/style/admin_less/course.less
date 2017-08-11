@@ -1,0 +1,144 @@
+/*table-div*/
+
+.table {
+    width: 100%;
+    padding-left: 30px;
+    box-sizing: border-box;
+    margin-bottom: 30px
+}
+
+.table .table-th {
+    height: 50px;
+    font-size: 18px;
+    margin-left: -30px;
+    background-color: #F5F8FC;
+    line-height: 50px
+}
+
+.table .table-th li {
+    float: left;
+    text-align: center;
+}
+
+.table .table-th li:first-child {
+    width: 80%;
+}
+
+.table .table-th li:last-child {
+    width: 20%;
+}
+
+.table .table-td {
+    width: 100%;
+}
+
+.table .table-td li {
+    height: 178px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #E1E9F5;
+}
+
+.table .table-td li .info {
+    float: left;
+    width: 80%;
+    padding: 20px 0;
+    border-right: 1px solid #E1E9F5;
+}
+
+.table .table-td li .info .img {
+    position: relative;
+    float: left;
+    width: 188px;
+    height: 126px
+}
+
+.table .table-td li .info .img img {
+    width: 100%;
+    height: 100%
+}
+
+.table .table-td li .info .img .play {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    width: 35px;
+    height: 24px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    background: #FFCB04;
+    color: #FFFFFF;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.table .table-td li .info .info-txt {
+    float: left;
+    width: 70%;
+    padding-left: 30px
+}
+
+.table .table-td li .info .info-txt p {
+    color: #253746;
+    line-height: 22px;
+    opacity: .6;
+    margin: 10px 0
+}
+
+.table .table-td li .info .info-txt span {
+    color: #7D7D7D;
+    opacity: .5;
+}
+
+.table .table-td li .state {
+    float: left;
+    position: relative;
+    width: 19%;
+    text-align: center;
+    padding: 70px 0
+}
+
+.table .table-td li .state .blue {
+    color: #4990E2;
+}
+
+.table .table-td li .state .red {
+    color: #FF8E66;
+}
+
+.table .table-td li .state .green {
+    color: #72DC3A;
+}
+
+.table .table-td li .state .btn-blue {
+    width: 60px;
+    height: 35px;
+    font-size: 14px;
+    padding: 5px 7px;
+    margin-left: 20px;
+    line-height: 25px;
+    text-align: center;
+    background: #4990E2;
+    color: #FFFFFF;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.table .table-td li .state .jing {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    width: 35px;
+    height: 35px;
+    background: url(../images/icon-jc-1@2x.png) no-repeat center;
+    background-size: 100%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.table .table-td li .state .jing.active {
+    background: url(../images/icon-jc@2x.png) no-repeat center;
+    background-size: 100%;
+}

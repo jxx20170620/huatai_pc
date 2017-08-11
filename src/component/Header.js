@@ -24,7 +24,7 @@ class Header extends Component {
 	constructor(args) {
 		super();
 		this.state = {
-			activeIndex: -1,
+			activeIndex: 0,
 			headItems: [
 			{
 				href: '/',
@@ -93,7 +93,7 @@ class Header extends Component {
 		           		let className = this.state.activeIndex === index ? 'active' : '';
 		           		return (
 		           			<li key={index}><Link className={className} 
-		           			// onClick={()=>{this.setState({activeIndex:index})}}
+		           			onClick={()=>{this.setState({activeIndex:index})}}
 		           			 to={item.href}>{item.text}</Link></li>
 		           		)
 		           	})

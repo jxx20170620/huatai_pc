@@ -20,9 +20,9 @@ import NewsCenter from './component/NewsCenter'
 import Login from './component/Login'
 import CourseManage from './component/CourseManage'
 import NotFoundPage from './component/NotFoundPage'
-import './style/less/config.less';
+import ArticleDetail from './component/ArticleDetail'
+import adminRoutes from './admin'
 import  './style/css/font-awesome.min.css';
-
 render(
 	<Provider store={store}>
        <Router history={browserHistory}>
@@ -42,12 +42,18 @@ render(
              <Route path='TeacherDetail/:id' component={TeacherDetail}/>
              <Route path='CourseManage' component={CourseManage}/>
              <Route path='AddCourse' component={CourseManage}/>
+             <Route path='ArticleDetail/:id' component={ArticleDetail}/>
          </Route>
+
+
+         {adminRoutes}
+
+
          <Route path='/404' component={NotFoundPage} />
          <Redirect from='*' to='/404' />
        </Router>
     </Provider>,
 	document.getElementById('root')
 );
-registerServiceWorker();
+registerServiceWorker();//在生产环境做本地缓存的东西
 
